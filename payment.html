@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Form</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+    }
+    
+    form {
+        width: 400px;
+        margin: 30px auto;
+        padding: 30px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+    
+    h1, h2 {
+        margin-bottom: 10px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+    
+    select {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+    
+    .expiration-date {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    button[type="submit"] {
+        width: 100%;
+        padding: 5px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }</style>
+</head>
+<body>
+    <form action="/contest" method="post">
+        <h1>Checkout</h1>
+        <h2>Payment Method</h2>
+        <select id="type" name="type" required>
+            <option value="Visa">Visa</option>
+            <option value="Master">Master</option>
+            <option value="Discover">Discover</option>
+            <option value="Rupay">Rupay</option>
+        </select>
+
+        <h2>Card Details</h2>
+        <label for="cardName">Card Name</label>
+        <input type="text" id="cardName" name="cardName" placeholder="Name" pattern="[A-Za-z]+" required>
+
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="0000 0000 0000" pattern="[0-9]{12}" required>
+
+        <div class="expiration-date">
+            <label for="expirationMonth">Expiration Date</label>
+            <input type="text" id="expirationMonth" name="expirationMonth" placeholder="MM" pattern="[0|1][0-9]" required>
+            <input type="text" id="expirationYear" name="expirationYear" placeholder="YY" pattern="[0-9]{4}" required>
+        </div>
+
+        <label for="cvv">CVV Code</label>
+        <input type="text" id="cvv" name="cvv" placeholder="000" pattern="[0-9]{3}" required>
+
+
+        <button type="submit">Buy Now</button>
+    </form>
+</body>
+</html>
